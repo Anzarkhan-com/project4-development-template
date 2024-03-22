@@ -1,0 +1,42 @@
+<IfModule mod_rewrite.c>
+Options +FollowSymlinks
+RewriteEngine on
+RewriteBase /
+
+
+
+
+
+
+# You can redirect your users to an error page with:
+ErrorDocument 404 /utility/404.php
+ErrorDocument 400 utility/400.php
+ErrorDocument 401 utility/401.php
+ErrorDocument 403 utility/403.php
+ErrorDocument 500 utility/500.php
+ErrorDocument 502 utility/502.php
+ErrorDocument 504 utility/504.php
+
+
+#Remove the Need for www in Your URL
+RewriteCond %{HTTP_HOST} ^www.lawyerneed.com [NC]
+RewriteRule ^(.*)$ https://www.lawyerneed.com/$1 [L,R=301]
+
+AddType application/javascript .mjs
+
+
+
+
+
+# Disable Directory browsing
+Options All -Indexes
+
+
+
+
+
+
+
+
+
+</IfModule>
